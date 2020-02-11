@@ -7,23 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>First</title>
+<title>随机数</title>
 
 
-    <meta name="description" content="Hello World!">
+    <meta name="description" content="C++里面的随机数和伪随机数真的是令人头大。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="First">
-<meta property="og:url" content="https://westworld.xyz/2020/02/09/hello/index.html">
+<meta property="og:title" content="随机数">
+<meta property="og:url" content="https://westworld.xyz/2020/02/12/%E9%9A%8F%E6%9C%BA%E6%95%B0/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="Hello World!">
+<meta property="og:description" content="C++里面的随机数和伪随机数真的是令人头大。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://westworld.xyz/images/hello.jpg">
-<meta property="article:published_time" content="2020-02-09T09:44:06.000Z">
-<meta property="article:modified_time" content="2020-02-10T09:38:31.954Z">
+<meta property="og:image" content="https://westworld.xyz/images/random.png">
+<meta property="article:published_time" content="2020-02-11T16:13:27.000Z">
+<meta property="article:modified_time" content="2020-02-11T16:35:46.152Z">
 <meta property="article:author" content="Haoyu He">
-<meta property="article:tag" content="AI&amp;NLP">
+<meta property="article:tag" content="c++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://westworld.xyz/images/hello.jpg">
+<meta name="twitter:image" content="https://westworld.xyz/images/random.png">
 
 
 
@@ -81,7 +81,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="First" height="28">
+                <img src="/images/logo.svg" alt="随机数" height="28">
             
             </a>
         </div>
@@ -140,7 +140,7 @@
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="/images/hello.jpg" alt="First">
+            <img class="thumbnail" src="/images/random.png" alt="随机数">
         </span>
     </div>
     
@@ -150,13 +150,20 @@
             <div class="level-left">
 			
 			
-                <time class="level-item has-text-grey" datetime="2020-02-09T09:44:06.000Z">2020-02-09</time>
+<i class="fas fa-arrow-alt-circle-up" style="color:#3273dc"></i>
+<span class="level-item" style="color:#3273dc">&nbsp;置顶</span>
+
+                <time class="level-item has-text-grey" datetime="2020-02-11T16:13:27.000Z">2020-02-12</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Technique/">Technique</a>
+                </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    a few seconds read (About 2 words)
+                    2 minutes read (About 293 words)
                 </span>
                 
 
@@ -165,11 +172,34 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                First
+                随机数
             
         </h1>
         <div class="content">
-            <h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World!"></a>Hello World!</h1>
+            <p>C++里面的随机数和伪随机数真的是令人头大。</p>
+<a id="more"></a>
+
+<ol>
+<li><p>遇到的第一个问题是不改变seed的情况下每次rand()的结果都是一样的，于是我再每次rand之前获取一个新种子。虽然仍然是产生的伪随机数，但起码每次调rand函数得到的随机数是不同的了，不知道还有没有更好的更改种子的方法？</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lisp">srand((<span class="hljs-name">time</span>(<span class="hljs-number">0</span>)+rand()))<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>更棘手的问题是rand() % n产生小于n的随机数的办法会导致有些余数出现的频率比其他余数大。于是我用了存储桶的策略，因为n*m&lt;=RAND_MAX的所有整数中，m = bucket_size是最大的，那么就可以保证在rand()/bucket_size &lt; n的时候生成的随机数一定可以避免余数出现频率不一的问题，从而合理地产生随机数。</p>
+<p><em>代码如下</em></p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs excel"><span class="hljs-built_in">int</span> nrand(<span class="hljs-built_in">int</span> <span class="hljs-built_in">n</span>)&#123;<br>    <span class="hljs-built_in">if</span>(<span class="hljs-built_in">n</span>&lt;=<span class="hljs-number">0</span>||<span class="hljs-built_in">n</span>&gt;RAND_MAX)<br>        throw domain_error(<span class="hljs-string">"Argument to nrand is out of range!"</span>);<br>    srand((<span class="hljs-built_in">time</span>(<span class="hljs-number">0</span>)+<span class="hljs-built_in">rand</span>()));<br>    const <span class="hljs-built_in">int</span> bucket_size = RAND_MAX/<span class="hljs-built_in">n</span>;<br>    <span class="hljs-built_in">int</span> r;<br>    do r = <span class="hljs-built_in">rand</span>()/bucket_size;<br>    while(r &gt;= <span class="hljs-built_in">n</span>);<br>    return r;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>Any better ideas ?</p>
+</li>
+</ol>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/c/" rel="tag">c++</a>
+                </div>
+            </div>
         </div>
         
         
@@ -217,13 +247,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/02/09/C/">
-                <i class="level-item fas fa-chevron-left"></i>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/02/09/C/">
                 <span class="level-item">C++问答</span>
+                <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
-        
         
     </div>
 </div>
@@ -236,8 +266,8 @@
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'https://westworld.xyz/2020/02/09/hello/';
-        this.page.identifier = '2020/02/09/hello/';
+        this.page.url = 'https://westworld.xyz/2020/02/12/%E9%9A%8F%E6%9C%BA%E6%95%B0/';
+        this.page.identifier = '2020/02/12/随机数/';
     };
     (function() {
         var d = document, s = d.createElement('script');  
@@ -379,21 +409,6 @@
 </div>
     
         
-
-    <div class="card widget" id="toc">
-        <div class="card-content">
-            <div class="menu">
-                <h3 class="menu-label">
-                    Catalogue
-                </h3>
-                <ul class="menu-list"><li>
-        <a class="is-flex" href="#Hello-World">
-        <span class="has-mr-6">1</span>
-        <span>Hello World!</span>
-        </a></li></ul>
-            </div>
-        </div>
-    </div>
 
     
         <div class="card widget">
@@ -720,7 +735,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="First" height="28">
+                    <img src="/images/logo.svg" alt="随机数" height="28">
                 
                 </a>
                 <p class="is-size-7">
