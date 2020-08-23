@@ -264,6 +264,106 @@
 
 <div class="card">
     
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+			
+			
+                <time class="level-item has-text-grey" datetime="2020-02-15T15:56:45.000Z">2020-02-15</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 minutes read (About 271 words)
+                </span>
+                
+
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/02/15/%E8%B5%8B%E5%80%BC%E4%B8%8E%E5%88%9D%E5%A7%8B%E5%8C%96/">赋值与初始化</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="区分类的赋值和初始化"><a href="#区分类的赋值和初始化" class="headerlink" title="区分类的赋值和初始化"></a>区分类的赋值和初始化</h2><p>在对类的对象做处理的时候，“=”既可以用来给对象初始化也可以用来给对象赋值，很难区分。确切的说，初始化包括创造一个新的对象，并同时给它一个初始的值，调用的是复制构造函数。而赋值操作是删除旧的值，然后赋给这个对象新的值，调用的是重载后的 “=”操作符函数。</p>
+<h2 id="类的默认操作"><a href="#类的默认操作" class="headerlink" title="类的默认操作"></a>类的默认操作</h2><p>默认析构函数删除一个指针变量时不会释放该指针指向的对象占用的内存空间。</p>
+<p>默认构造函数如果成员变量是类的对象实例，那么对他们复制、赋值和删除时会调用想用的类的构造函数、赋值运算符函数或析构函数。</p>
+<p>三位一体规则：复制构造函数、析构函数和赋值运算符函数关系十分紧密。     详见<em>P212</em></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+			
+			
+                <time class="level-item has-text-grey" datetime="2020-02-12T15:33:10.000Z">2020-02-12</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 minutes read (About 270 words)
+                </span>
+                
+
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/02/12/%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%A7%8D%E7%B1%BB/">迭代器种类</a>
+            
+        </h1>
+        <div class="content">
+            <p>迭代器的种类</p>
+<ol>
+<li>输入迭代器：顺序只读访问，所有的容器迭代器都是输入迭代器。——find函数</li>
+<li>输出迭代器：顺序只写访问，不能在对*iter的；两个赋值运算之间执行超过一次的++iter操作，也不能在没有对iter进行递增的情况下对iter进行多次赋值。——copy函数</li>
+<li>正向迭代器：顺序读-写访问，一旦处理了一个元素，绝不会再次访问它。所有的标准库容器都满足正向迭代器的要求。——replace函数</li>
+<li>双向迭代器：可以按正向或者逆向访问一个容器的元素，所有的标准库容器都支持双向迭代器。——reverse函数</li>
+<li>随机访问迭代器：能够随机访问容器中的元素，vector和string的迭代器都是这样的迭代器，而list迭代器则不支持这样的操作。——sort函数</li>
+</ol>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+
+<div class="card">
+    
     <div class="card-image">
         <a href="/2020/02/12/pycharm-professional-2019-2%E6%B0%B8%E4%B9%85%E6%BF%80%E6%B4%BB/" class="image is-7by1">
             <img class="thumbnail" src="/images/pycharm.png" alt="Pycharm Professional 2019.2永久激活">
@@ -368,7 +468,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            3
+                            5
                         </p>
                     </a>
                 </div>
@@ -528,6 +628,44 @@
         
         <article class="media">
             
+            <a href="/2020/02/15/%E8%B5%8B%E5%80%BC%E4%B8%8E%E5%88%9D%E5%A7%8B%E5%8C%96/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="赋值与初始化">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T15:56:45.000Z">2020-02-15</time></div>
+                    <a href="/2020/02/15/%E8%B5%8B%E5%80%BC%E4%B8%8E%E5%88%9D%E5%A7%8B%E5%8C%96/" class="title has-link-black-ter is-size-6 has-text-weight-normal">赋值与初始化</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/02/12/%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%A7%8D%E7%B1%BB/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="迭代器种类">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-12T15:33:10.000Z">2020-02-12</time></div>
+                    <a href="/2020/02/12/%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%A7%8D%E7%B1%BB/" class="title has-link-black-ter is-size-6 has-text-weight-normal">迭代器种类</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/02/12/pycharm-professional-2019-2%E6%B0%B8%E4%B9%85%E6%BF%80%E6%B4%BB/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/pycharm.png" alt="Pycharm Professional 2019.2永久激活">
@@ -600,7 +738,7 @@
                     <span class="level-item">February 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -649,6 +787,44 @@
         
         <article class="media">
             
+            <a href="/2020/02/15/%E8%B5%8B%E5%80%BC%E4%B8%8E%E5%88%9D%E5%A7%8B%E5%8C%96/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="赋值与初始化">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-15T15:56:45.000Z">2020-02-15</time></div>
+                    <a href="/2020/02/15/%E8%B5%8B%E5%80%BC%E4%B8%8E%E5%88%9D%E5%A7%8B%E5%8C%96/" class="title has-link-black-ter is-size-6 has-text-weight-normal">赋值与初始化</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/02/12/%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%A7%8D%E7%B1%BB/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="迭代器种类">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-12T15:33:10.000Z">2020-02-12</time></div>
+                    <a href="/2020/02/12/%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%A7%8D%E7%B1%BB/" class="title has-link-black-ter is-size-6 has-text-weight-normal">迭代器种类</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/02/12/pycharm-professional-2019-2%E6%B0%B8%E4%B9%85%E6%BF%80%E6%B4%BB/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/pycharm.png" alt="Pycharm Professional 2019.2永久激活">
@@ -721,7 +897,7 @@
                     <span class="level-item">February 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
